@@ -1,4 +1,5 @@
-﻿using Funq;
+﻿using System.Web;
+using Funq;
 using ServiceStack.Common;
 using ServiceStack.Common.Web;
 using ServiceStack.ServiceHost;
@@ -41,6 +42,23 @@ namespace FiddlerAutomationHook
           DefaultContentType = ContentType.Json, //Change default content type
           AllowJsonpRequests = false //Enable JSONP requests
         });
+
+      //var conf = new EndpointHostConfig()
+      //{
+      //    DefaultRedirectPath = "/info",
+      //};
+
+      //conf.RawHttpHandlers.Add(r =>
+      //{
+      //    if (r.RawUrl == "/")
+      //    {
+      //        HttpContext.Current.RewritePath(conf.DefaultRedirectPath);
+      //    }
+
+      //    return null;
+      //});
+
+      //this.SetConfig(conf);
     }
   }
 }

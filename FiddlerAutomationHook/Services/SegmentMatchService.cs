@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
+using ServiceStack.Text;
 
 namespace FiddlerAutomationHook.Services
 {
@@ -11,6 +12,14 @@ namespace FiddlerAutomationHook.Services
     public SegmentMatchService(SegmentEvaluator evaluator)
     {
       m_evaluator = evaluator;
+    }
+
+    public InfoResponse Get(InfoRequest request)
+    {
+      return new InfoResponse()
+        {
+          Info = "Version {0} of AutomationHook".Fmt(GetType().Assembly.GetName().Version.ToString()),
+        };
     }
 
     public StatusResponse Get(StatusRequest request)

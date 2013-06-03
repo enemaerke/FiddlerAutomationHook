@@ -6,6 +6,14 @@ using ServiceStack.ServiceHost;
 
 namespace FiddlerAutomationHook.Services
 {
+  [Route("/info", "GET")]
+  public class InfoRequest : IReturn<InfoResponse>{}
+
+  public class InfoResponse
+  {
+    public string Info { get; set; }
+  }
+
   [Route("/status", "GET")]
   public class StatusRequest : IReturn<StatusResponse>
   {
