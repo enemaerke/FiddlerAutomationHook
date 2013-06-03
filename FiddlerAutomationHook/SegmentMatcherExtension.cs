@@ -22,10 +22,11 @@ namespace FiddlerAutomationHook
         m_appHost = new ServiceStackAppHost(m_evaluator);
         m_appHost.Init();
         m_appHost.Start(listeningOn);
+        FiddlerApplication.Log.LogString("Started AutomationHook");
       }
       catch (Exception exc)
       {
-        Trace.WriteLine("FiddlerAutomationHook. Exception caught in OnLoad:" + exc.FullExceptionDetails());
+        FiddlerApplication.Log.LogString("FiddlerAutomationHook. Exception caught in OnLoad:" + exc.FullExceptionDetails());
       }
     }
 
@@ -38,7 +39,7 @@ namespace FiddlerAutomationHook
       }
       catch (Exception exc)
       {
-        Trace.WriteLine("FiddlerAutomationHook. Exception caught in OnBeforeUnload:" + exc.Message);
+        FiddlerApplication.Log.LogString("FiddlerAutomationHook. Exception caught in OnBeforeUnload:" + exc.Message);
       }
     }
 
